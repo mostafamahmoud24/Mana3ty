@@ -1,18 +1,18 @@
 @extends('layouts.layout')
     @section('content')
     <body>
-        <div class="container">
-        <div class="container mt-5">
+        <div class="container-fluid container">
+        <div class="container-fluid container mt-5">
                 <div class="row">
-                <div class="col-2"></div>
-                <div class="col-8">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
                         <form action="/search/patients" method="GET">
                           <div class="container">
                           <input type="text" placeholder="Search Patients... (Date: m/d/y)" class="search w-100" name="query" id="query" value="{{request()->input('query')}}">
                             </div>
                       </form>
                   </div>
-                <div class="col-2"></div>
+                <div class="col-sm-2"></div>
             </div>
             </div>
         
