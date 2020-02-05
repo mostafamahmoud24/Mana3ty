@@ -48,10 +48,10 @@
         </div>
     </div>
 
-    <div class="container text-center mt-3">
+    <div class="container-fluid container text-center mt-3">
             <div class="row">
                 <div class="col-4"></div>
-                <div class="col-4 center-block">
+                <div class="col-sm-4 center-block">
                     <a href="patients/create" style="text-decoration:none" class="new-patient">
                         <button class="btn btn-primary">
                         Create New Patient

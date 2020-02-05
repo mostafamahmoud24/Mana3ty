@@ -56,7 +56,7 @@
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-4 center-block">
-                    <a href="patients/create" style="text-decoration:none" class="new-patient">
+                    <a href="../patients/create" style="text-decoration:none" class="new-patient">
                         <button class="btn btn-primary">
                         Create New Patient
                         </button>
