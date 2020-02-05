@@ -41,7 +41,7 @@
                 <hr>
                 <div class="col-3 mb-1">{{$s->phone}}</div>
                 <hr>
-                <div class="col-4 mb-1">{{ date('d-M-Y - h:i a', strtotime($s->created_at)) }}</div>
+                <div class="col-4 mb-1">{{ date('d-M-Y ', strtotime($s->created_at)) }}</div>
             </div>
         </a> 
     @endforeach

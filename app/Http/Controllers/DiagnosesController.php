@@ -39,7 +39,8 @@ class DiagnosesController extends Controller
     {
         $diagnosis = new Diagnosis();
         $user = Auth::user();
-        return view('diagnoses.create', compact('diagnosis', 'user', 'patient'));
+        $users = User::all();
+        return view('diagnoses.create', compact('diagnosis', 'user', 'patient', 'users'));
     }
 
     /**
@@ -79,7 +80,8 @@ class DiagnosesController extends Controller
      */
     public function edit(Patient $patient, Diagnosis $diagnosis)
     {
-        return view('diagnoses.edit', compact('diagnosis', 'patient'));
+        $users = User::all();
+        return view('diagnoses.edit', compact('diagnosis', 'patient', 'users'));
     }
 
     /**
@@ -116,7 +118,10 @@ class DiagnosesController extends Controller
             'visit_num' => 'required|int',
             'name' => 'required',
             'comment' => 'min:0',
-            'illness' => 'min:0',
+            'illness' => array(
+                'min:0',
+                'regex:/(^([a-zA-Z]+)(\d+)?$)/u'
+            ),
             'user_id' => 'required',
             'patient_id' => 'required',
             ]);

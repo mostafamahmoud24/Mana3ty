@@ -1,9 +1,12 @@
 @include('layouts.layout')
 
 <div class="container">
-    <form action="/patients/{{$patient}}/diagnoses/{{$diagnosis}}/images">
+    <form action={{ url()->previous() }}>
         <button type="submit" class="btn btn-warning mt-3 ml-1">BACK</button>
     </form>
+    {{-- <form action="/patients/{{$patient}}/diagnoses/{{$diagnosis}}/images">
+        <button type="submit" class="btn btn-warning mt-3 ml-1">BACK</button>
+    </form> --}}
 
     <hr>
 

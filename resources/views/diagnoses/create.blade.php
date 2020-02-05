@@ -14,14 +14,17 @@
     
         <form action="{{url('patients/' . $patient->id)}}" method ="POST" class="pb-5" enctype="multipart/form-data">
                 <div class="form-group">
+                    @if ($patient->diagnoses->last() === null)
+                    <input type="hidden" placeholder = "Visit No." name = "visit_num" class="form-control" value = "{{1}}" >
+                    @else    
                     <input type="hidden" placeholder = "Visit No." name = "visit_num" class="form-control" value = "{{$patient->diagnoses->last()->visit_num + 1}}" >
-
+                    @endif
+                    
                     <hr>
 
                     <label for="illness" class="text-white">Diagnosis</label>
-                    <div class=text-danger>{{$errors->first('illness')}}</div>
                     <input type="text" placeholder = "Patient Diagnosis..." name = "illness" class="form-control" value = "{{old('illness') ?? $diagnosis->illness}}" >
-
+                    <div class=text-danger>{{$errors->first('illness')}}</div>
                     <hr>
 
                     <label for="comment" class="text-white">Comments</label> 
@@ -33,7 +36,24 @@
                 <input type="hidden" name="patient_id" value="{{$patient->id}}">
                 <input type="hidden" name="name" value="{{$patient->name}}">
 
-                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                {{-- <input type="hidden" name="user_id" value="{{Auth::user()->id}}"> --}}
+                <select class="btn btn-secondary dropdown-toggle" name="user_id">
+                    <option disabled label="Select Doctor" class="bg-white" selected>Select Doctor</option>
+                    @foreach ($users as $user)
+                        <option value="{{$user->id}}"  class="rounded">{{$user->name}}</option>
+                    @endforeach
+                  </select>
+
+                  {{-- <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Select Doctor
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-center">
+                      @foreach ($users as $user)
+                      <button class="dropdown-item" type="button" value="{{$user->id}}">{{$user->name}}</button>
+                    @endforeach
+                    </div>
+                  </div> --}}
 
                 </div>
 

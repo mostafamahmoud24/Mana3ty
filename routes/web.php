@@ -47,3 +47,4 @@ Route::get('/patients/{patient}/diagnoses/{diagnosis}/images/{image}', 'ImagesCo
 
 
 
+

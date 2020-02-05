@@ -23,8 +23,8 @@
             <div id="app" class="container">
                     <nav class="navbar navbar-expand-md navbar-light shadow-sm border-bottom border-secondary">
                         <div class="container">
-                            <a class="navbar-brand text-white" href="{{ url('/') }}">
-                                {{ config('app.name', 'Laravel') }}
+                            <a class="navbar-brand text-white w-10" href="{{ url('/') }}">
+                                <img style="width: 150px" src="{{ asset('images/logo1.jpeg')}}" alt="logo">
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                                 <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
                                     <ul class="navbar-nav mr-auto">
                                 
                                         <li class="nav-item">
-                                            <a class="nav-link text-white" href="/" tabindex="-1" aria-disabled="true">Patients</a>
+                                            <a class="nav-link text-white" href="/" tabindex="-1" aria-disabled="true"  >Patients</a>
                                         </li>
                                 
                                         <li class="nav-item">

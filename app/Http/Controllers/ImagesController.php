@@ -17,11 +17,6 @@ use App\UploadImage;
 
 
 
-
-
-
-
-
 class ImagesController extends Controller
 {
     /**
@@ -121,6 +116,10 @@ class ImagesController extends Controller
         File::delete([
             public_path($uploadImage->image)
         ]);
+
+        // Storage::delete([
+        //     public_path('/storage/uploads/' . $uploadImage->image)
+        // ]);
 
         $d = $diagnosis->find($uploadImage->diagnosis_id)->id;
 

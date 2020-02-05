@@ -25,7 +25,7 @@
             <div class="col-6 mt-2">
                 <label for=""class=''><strong>Diagnosis Date: </strong></label>
                 <ul>
-                    <li>{{ date('d-M-Y - h:i a', strtotime($diagnosis->created_at)) }}</li>
+                    <li>{{ date('d-M-Y ', strtotime($diagnosis->created_at)) }}</li>
                 </ul>
                 <label for=""class=''><strong>Doctor: </strong></label>
                 <ul>

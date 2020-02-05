@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Patient;
 use App\User;
 use App\Diagnosis;
+use App\UploadImage;
 
 
 class PatientsController extends Controller
@@ -87,11 +88,12 @@ class PatientsController extends Controller
      */
     public function show(Patient $patient, Diagnosis $diagnosis)
     {
+        $images = UploadImage::latest()->get();
         $diagnoses = Diagnosis::all();
         $users = User::all();
         $patients = Patient::all();
 
-        return view('patients.show', compact('patient', 'users', 'patients', 'diagnosis', 'patients'));
+        return view('patients.show', compact('patient', 'users', 'patients', 'diagnosis', 'patients', 'images', 'diagnoses'));
     }
 
     /**
