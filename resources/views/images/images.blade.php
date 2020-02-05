@@ -52,7 +52,7 @@
     <div class="row">
             @foreach ($images as $img)
             @if ($img->diagnosis_id == $patient)
-            <div class="col-3 mb-4">
+            <div class="col-3  mb-4">
             <a href="{{ url('patients/' . $diagnosis . " /diagnoses/" . $patient . " /images/" . $img->id)}}"><img src="{{ asset('storage/' . $img->image)}}" alt="" class="w-100 rounded float-left"></a>
             
                     <form action="/images/{{$img->id}}" method='post'>

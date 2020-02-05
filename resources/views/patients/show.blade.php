@@ -97,20 +97,20 @@
 
 </div>
 
-<div class="container mt-5">
+<div class="container-fluid mt-5 container">
     <div class="row">
         
             @foreach ($images as $img)
                 @foreach ($patient->diagnoses as $diag)
                         @if ($img->diagnosis_id === $diag->id)
-                        <div class="col-4 mb-4 text-left px-5">
+                        <div class="col-sm-4  mb-4 text-left px-5">
                             <div class="row">
                                 <a href="{{ url('patients/' . $diagnosis . " /diagnoses/" . $patient . " /images/" . $img->id)}}">
                                     <img src="{{ asset('storage/' . $img->image)}}" class="w-100 rounded float-left"/>
                                 </a>
                             </div>
                             <div class="row">
-                                <div class="bg-white rounded mt-2 col-12">
+                                <div class="bg-white rounded mt-2 col-sm-12">
                                     {{-- <p class="">Visit: {{$diag->visit_num}}</p>
                                     <hr> --}}
                                     <p class="mt-3">Doctor: {{$users->find($diag->user_id)->name}}</p>
