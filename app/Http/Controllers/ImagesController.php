@@ -7,6 +7,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Image;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -111,14 +112,47 @@ class ImagesController extends Controller
     public function destroy(UploadImage $uploadImage, Patient $patient, Diagnosis $diagnosis)
     {
 
-        $uploadImage->delete();
+        
 
+        // File::delete(public_path(' /public/storage/uploads/' . $uploadImage->image));
+        // $image_path = $uploadImage->image;  
+        //     if(file_exists($image_path)) {
+        //         File::delete($image_path);
+        //     }
         File::delete([
-            public_path($uploadImage->image)
+            public_path('storage/' . $uploadImage->image, 8)
         ]);
 
+        // if(\File::exists(public_path('storage/' . $uploadImage->image, 8))){
+
+        //     \File::delete(public_path(substr($uploadImage->image, 8)));
+        
+        //   }else{
+        
+        //     dd(public_path('storage/' . $uploadImage->image, 8));
+        
+        //   }
+
+          $uploadImage->delete();
+
+
+        //   C:\xampp\htdocs\patientapp\public\storage\uploads\8WI2yQdkBLGx2GCUYiEqBduBBye2oPCH500OsBcM.jpeg
+
+        //   public\storage\uploads\8WI2yQdkBLGx2GCUYiEqBduBBye2oPCH500OsBcM.jpeg
+        //   if(\Storage::exists('app/public/uploads' . substr($uploadImage->image, 8))){
+
+        //     \Storage::delete('app/public/uploads' . substr($uploadImage->image, 8));
+
+        //   }else{
+        
+        //     dd('File does not exists.');
+        
+        //   }
+
+        // $this->deleteImage($uploadImage->image);
+
         // Storage::delete([
-        //     public_path('/storage/uploads/' . $uploadImage->image)
+        //     public_path('/' .'uploads/' . $uploadImage->image)
         // ]);
 
         $d = $diagnosis->find($uploadImage->diagnosis_id)->id;
