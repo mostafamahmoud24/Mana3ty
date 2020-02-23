@@ -112,55 +112,18 @@ class ImagesController extends Controller
     public function destroy(UploadImage $uploadImage, Patient $patient, Diagnosis $diagnosis)
     {
 
-        
-
-        // File::delete(public_path(' /public/storage/uploads/' . $uploadImage->image));
-        // $image_path = $uploadImage->image;  
-        //     if(file_exists($image_path)) {
-        //         File::delete($image_path);
-        //     }
         File::delete([
             public_path('storage/' . $uploadImage->image, 8)
         ]);
 
-        // if(\File::exists(public_path('storage/' . $uploadImage->image, 8))){
-
-        //     \File::delete(public_path(substr($uploadImage->image, 8)));
-        
-        //   }else{
-        
-        //     dd(public_path('storage/' . $uploadImage->image, 8));
-        
-        //   }
-
           $uploadImage->delete();
 
-
-        //   C:\xampp\htdocs\patientapp\public\storage\uploads\8WI2yQdkBLGx2GCUYiEqBduBBye2oPCH500OsBcM.jpeg
-
-        //   public\storage\uploads\8WI2yQdkBLGx2GCUYiEqBduBBye2oPCH500OsBcM.jpeg
-        //   if(\Storage::exists('app/public/uploads' . substr($uploadImage->image, 8))){
-
-        //     \Storage::delete('app/public/uploads' . substr($uploadImage->image, 8));
-
-        //   }else{
-        
-        //     dd('File does not exists.');
-        
-        //   }
-
-        // $this->deleteImage($uploadImage->image);
-
-        // Storage::delete([
-        //     public_path('/' .'uploads/' . $uploadImage->image)
-        // ]);
 
         $d = $diagnosis->find($uploadImage->diagnosis_id)->id;
 
         $p = $patient->find($diagnosis->find($d)->patient_id)->id;
 
         
-
         return redirect("patients/" . $p . " /diagnoses/" . $d . '/images');
     }
 
