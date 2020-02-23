@@ -11,8 +11,6 @@
 |
 */
 
-Artisan::call('storage:link');
-
 Route::get('/', 'PatientsController@index');
 Route::get('/patients/create', 'PatientsController@create');
 Route::post('/', 'PatientsController@store');
