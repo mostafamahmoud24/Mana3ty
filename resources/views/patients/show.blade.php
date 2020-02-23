@@ -103,7 +103,7 @@
             @foreach ($images as $img)
                 @foreach ($patient->diagnoses as $diag)
                         @if ($img->diagnosis_id === $diag->id)
-                        <div class="col-sm-4  mb-4 text-left px-5">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4  mb-4 text-left px-5">
                             <div class="row">
                                 <a href="{{ url('patients/' . $diagnosis . " /diagnoses/" . $patient . " /images/" . $img->id)}}">
                                     <img src="{{ asset('storage/' . $img->image)}}" class="w-100 rounded float-left"/>
