@@ -57,7 +57,7 @@
                             <label for="token" class="col-md-4 col-form-label text-md-right">{{ __('Token') }}</label>
 
                             <div class="col-md-6">
-                                <input id="token" type="token" class="form-control @error('token') is-invalid @enderror" name="token" value="{{ old('token') }}" required >
+                                <input id="token" type="token" class="form-control @error('token') is-invalid @enderror" name="token" required >
 
                                 @error('token')
                                     <span class="invalid-feedback" role="alert">
