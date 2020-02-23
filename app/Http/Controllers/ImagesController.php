@@ -141,7 +141,7 @@ class ImagesController extends Controller
     private function storeImage($ImageUpload) {
         if (request()->has('image')) {
             $ImageUpload->update([
-                'image' => request()->image->store('uploads', 'public'),
+                'image' => request()->image->store('storage', 'public'),
             ]);
         }
     }
